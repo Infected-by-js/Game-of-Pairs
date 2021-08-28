@@ -175,6 +175,7 @@ button: disabled {
   justify-content: center;
   align-items: center;
   font-size: 2.2em;
+  line-height: 0;
   background-image: url('../assets/img/card-backside.jpg');
   background-size: cover;
   background-repeat: no-repeat;
