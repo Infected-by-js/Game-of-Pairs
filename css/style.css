@@ -1,0 +1,283 @@
+/*--- fonts ---*/
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+/*--- all---*/
+
+* {
+  user-select: none;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+}
+
+body {
+  min-width: 800px;
+  box-sizing: border-box;
+  /*background-image: url('../assets/img/background.jpg');*/
+  background-attachment: fixed;
+  background-clip: content-box;
+  background-size: cover;
+  overflow: hidden;
+}
+
+button {
+  font-weight: 700;
+}
+
+/*--- main ---*/
+#app {
+  position: relative;
+  margin: 10px auto;
+  width: 40em;
+  min-height: 750px;
+}
+
+
+
+/*--- modal ---*/
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal__container {
+  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #fff;
+}
+
+
+.modal__title {
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 2;
+  font-weight: 700;
+  border-bottom: 1px solid #000000af;
+}
+
+.modal__description {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+.modal__options_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin-bottom: 20px;
+}
+
+.modal__options_prev-btn {
+  font-size: 1.1em;
+  border: none;
+  font-weight: 400;
+  background: none;
+  cursor: pointer;
+}
+
+.modal__options_next-btn {
+  font-size: 1.1em;
+  line-height: 1.4;
+  font-weight: 400;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.modal__options_output {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.5em;
+  align-self: center;
+  letter-spacing: 2px;
+}
+
+
+.modal__start-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  background: rgb(106, 167, 106);
+  cursor: pointer;
+}
+
+.modal__start-btn:hover {
+  background: rgb(94, 151, 94);
+}
+
+
+.modal__options_next-btn:not(button:disabled):hover,
+.modal__options_prev-btn:not(button:disabled):hover {
+  transition: 0.2s;
+  border-bottom: 4px dashed rgb(106, 167, 106);
+  ;
+  color: rgb(106, 167, 106);
+}
+
+button: disabled {
+  font-size: 1.1em;
+  line-height: 1.4;
+  font-weight: 400;
+  border: none;
+  background: none;
+}
+
+
+/*--- game ---*/
+
+
+.game__title {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.game__description {
+  margin-bottom: 40px;
+  width: 60vw;
+  font-weight: 400;
+}
+
+.game__table {
+  height: 80vh;
+  min-height: 600px;
+  display: grid;
+  grid-auto-rows: minmax(7vh, auto);
+  grid-column-gap: 2em;
+  grid-gap: 10px;
+}
+
+
+.game__card {
+  transition: 0.2s;
+  transform: scaleX(1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2em;
+  background-image: url('../assets/img/card-backside.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 2px 2px 4px gray;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  cursor: help;
+
+}
+
+.game__card-body {
+  transition: 0.1s;
+  transform: scaleX(-1);
+}
+
+.game__card:hover {
+  mix-blend-mode: normal;
+}
+
+._open {
+  animation-delay: 0.1s;
+  transition: ease-out 0.2s;
+  transform: scaleX(-1);
+  background-color: blanchedalmond;
+  background-image: none;
+  mix-blend-mode: normal;
+  cursor: auto;
+}
+
+@keyframes flip {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(-1);
+  }
+}
+
+
+/*end game*/
+.end__title {
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 2;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000000af;
+  font-weight: 800;
+  text-align: center;
+}
+
+.end__description {
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-size: 1em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.clicker {
+  padding: 0 15px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+/*timer*/
+
+.timer__wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 10px 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 11em;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px rgb(99, 94, 94)
+}
+
+.timer__label,
+.reset-button {
+  padding: 5px;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.time__counter {
+  padding-left: 5px;
+}
+
+.reset-button {
+  margin-bottom: 8px;
+  width: 80%;
+  text-align: center;
+  align-self: center;
+  border-radius: 8px;
+
+}
+
+.reset-button:hover {
+  background: rgb(243, 193, 181);
+}
